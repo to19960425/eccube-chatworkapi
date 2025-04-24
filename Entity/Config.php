@@ -27,7 +27,19 @@ if (!class_exists('\Plugin\ChatworkApi\Entity\Config', false)) {
          *
          * @ORM\Column(name="api_key", type="string", length=255, nullable=true)
          */
-        private $api_key;
+        private $apiKey;
+
+        /**
+         * @var string
+         *
+         * @ORM\Column(name="room_id", type="string", length=255, nullable=true)
+         */
+        private $roomId;
+
+        /**
+         * @ORM\Column(name="enabled", type="boolean", options={"default": false})
+         */
+        private $enabled = false;
 
         /**
          * @return int
@@ -42,18 +54,60 @@ if (!class_exists('\Plugin\ChatworkApi\Entity\Config', false)) {
          */
         public function getApiKey()
         {
-            return $this->api_key;
+            return $this->apiKey;
         }
 
         /**
-         * @param string $api_key
+         * @param string $apiKey
          *
          * @return $this;
          */
-        public function setApiKey($api_key)
+        public function setApiKey($apiKey)
         {
-            $this->api_key = $api_key;
+            $this->apiKey = $apiKey;
 
+            return $this;
+        }
+
+        /**
+         * @return string
+         */
+        public function getRoomId()
+        {
+            return $this->roomId;
+        }
+
+        /**
+         * @param string $roomId
+         *
+         * @return $this;
+         */
+        public function setRoomId($roomId)
+        {
+            $this->roomId = $roomId;
+
+            return $this;
+        }
+
+        /**
+         * 通知を有効にするかどうかの設定を取得します。
+         *
+         * @return bool 通知が有効な場合は true、無効な場合は false
+         */
+        public function isEnabled(): bool
+        {
+            return $this->enabled;
+        }
+
+        /**
+         * 通知を有効にするかどうかを設定します。
+         *
+         * @param bool $enabled 通知を有効にする場合は true、無効にする場合は false
+         * @return self
+         */
+        public function setEnabled(bool $enabled): self
+        {
+            $this->enabled = $enabled;
             return $this;
         }
     }

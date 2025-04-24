@@ -24,9 +24,47 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col mb-2">
+                                <div class="c-toggleSwitch">
+                                    <div class="c-toggleSwitch__btn">
+                                        <label for="enabled" class="mb-3">通知ON/OFF</label>
+                                        {{ form_widget(form.enabled, {'id': 'enabled'}) }}
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mb-2">
                                     {{ form_label(form.api_key) }}
                                     {{ form_widget(form.api_key) }}
                                     {{ form_errors(form.api_key) }}
+                                    <a class="btn btn-ec-conversion mt-2"
+                                        href="{{ url('chatwork_api_test') }}"
+                                        onclick="return confirm('Chatwork APIを呼び出してテストします。本当によろしいですか？\nフォームに変更がある場合、先に保存してからテストを実行してください。');"
+                                    >
+                                        <i class="fa fa-cog" aria-hidden="true"></i>
+                                        <span>接続テスト</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mb-2">
+                                    {{ form_label(form.room_id) }}
+                                    {{ form_widget(form.room_id) }}
+                                    {{ form_errors(form.room_id) }}
+                                    <a class="btn btn-ec-conversion mt-2"
+                                        href="{{ url('chatwork_api_test_room_info') }}"
+                                        onclick="return confirm('Chatwork APIを呼び出してテストします。本当によろしいですか？\nフォームに変更がある場合、先に保存してからテストを実行してください。');"
+                                    >
+                                        <i class="fa fa-cog" aria-hidden="true"></i>
+                                        <span>接続テスト</span>
+                                    </a>
+                                    <a class="btn btn-ec-regular mt-2"
+                                        href="{{ url('chatwork_api_test_message') }}"
+                                        onclick="return confirm('Chatwork APIを呼び出してテストします。本当によろしいですか？\nフォームに変更がある場合、先に保存してからテストを実行してください。');"
+                                    >
+                                        <i class="fa fa-cog" aria-hidden="true"></i>
+                                        <span>テストメッセージ送信</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>

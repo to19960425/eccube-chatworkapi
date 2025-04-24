@@ -36,8 +36,9 @@ class ConfigRepository extends AbstractRepository
         $Config = $this->find($id);
 
         if (null === $Config) {
-            $Config = new Config();
-            $Config->setApiKey(null);
+            $Config = new \Plugin\ChatworkApi\Entity\Config();
+            $this->_em->persist($Config); // ← 新規作成
+            $this->_em->flush();
         }
 
         return $Config;
