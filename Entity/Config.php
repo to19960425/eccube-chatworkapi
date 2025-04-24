@@ -25,9 +25,9 @@ if (!class_exists('\Plugin\ChatworkApi\Entity\Config', false)) {
         /**
          * @var string
          *
-         * @ORM\Column(name="name", type="string", length=255)
+         * @ORM\Column(name="api_key", type="string", length=255, nullable=true)
          */
-        private $name;
+        private $api_key;
 
         /**
          * @return int
@@ -40,19 +40,19 @@ if (!class_exists('\Plugin\ChatworkApi\Entity\Config', false)) {
         /**
          * @return string
          */
-        public function getName()
+        public function getApiKey()
         {
-            return $this->name;
+            return $this->api_key;
         }
 
         /**
-         * @param string $name
+         * @param string $api_key
          *
          * @return $this;
          */
-        public function setName($name)
+        public function setApiKey($api_key)
         {
-            $this->name = $name;
+            $this->api_key = $api_key;
 
             return $this;
         }

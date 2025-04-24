@@ -2,7 +2,7 @@
 
 {% set menus = ['store', 'plugin', 'plugin_list'] %}
 
-{% block title %}ChatworkApi{% endblock %}
+{% block title %}Chatwork API 設定{% endblock %}
 {% block sub_title %}プラグイン一覧{% endblock %}
 
 {% form_theme form '@admin/Form/bootstrap_4_horizontal_layout.html.twig' %}
@@ -23,11 +23,10 @@
                         <div class="card-header"><span>設定</span></div>
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-3"><span>名前</span><span
-                                            class="badge bg-primary ml-1">必須</span></div>
                                 <div class="col mb-2">
-                                    {{ form_widget(form.name) }}
-                                    {{ form_errors(form.name) }}
+                                    {{ form_label(form.api_key) }}
+                                    {{ form_widget(form.api_key) }}
+                                    {{ form_errors(form.api_key) }}
                                 </div>
                             </div>
                         </div>
@@ -51,7 +50,7 @@
                         <div class="row align-items-center justify-content-end">
                             <div class="col-auto">
                                 <button class="btn btn-ec-conversion px-5"
-                                        type="submit">登録</button>
+                                        type="submit">保存</button>
                             </div>
                         </div>
                     </div>

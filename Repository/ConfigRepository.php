@@ -36,7 +36,8 @@ class ConfigRepository extends AbstractRepository
         $Config = $this->find($id);
 
         if (null === $Config) {
-            throw new \Exception('Config not found. id = '.$id);
+            $Config = new Config();
+            $Config->setApiKey(null);
         }
 
         return $Config;

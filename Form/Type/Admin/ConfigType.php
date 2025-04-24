@@ -17,11 +17,9 @@ class ConfigType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name', TextType::class, [
-            'constraints' => [
-                new NotBlank(),
-                new Length(['max' => 255]),
-            ],
+        $builder->add('api_key', TextType::class, [
+            'label' => 'Chatwork APIキー',
+            'required' => true,
         ]);
     }
 

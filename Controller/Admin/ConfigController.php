@@ -34,14 +34,11 @@ class ConfigController extends AbstractController
     {
         $Config = $this->configRepository->get();
         $form = $this->createForm(ConfigType::class, $Config);
+
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
-            $Config = $form->getData();
-            $this->entityManager->persist($Config);
             $this->entityManager->flush();
-            $this->addSuccess('登録しました。', 'admin');
-
+            $this->addSuccess('保存しました。', 'admin');
             return $this->redirectToRoute('chatwork_api_admin_config');
         }
 
