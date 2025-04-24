@@ -67,7 +67,7 @@ class Event implements EventSubscriberInterface
 
     private function createChatworkText(Email $message)
     {
-        $text = $message->getTextBody() ?? '(本文なし)';
+        $text = $message->getTextBody() ?? null;
         $subject = $message->getSubject();
         $from = $message->getFrom()[0]->getAddress();
 

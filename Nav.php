@@ -11,6 +11,18 @@ class Nav implements EccubeNav
      */
     public static function getNav()
     {
-        return [];
+        return [
+            'ChatworkApi' => [
+                'name' => 'chatwork_api.admin.nav.001',
+                'icon' => 'fa-comments',
+                'children' => [
+                    'chatwork_api_admin_config' => [
+                        'id' => 'chatwork_api_admin_config',
+                        'url' => 'chatwork_api_admin_config',
+                        'name' => 'chatwork_api.admin.nav.002',
+                    ],
+                ],
+            ],
+        ];
     }
 }

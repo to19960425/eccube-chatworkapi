@@ -1,9 +1,9 @@
 {% extends '@admin/default_frame.twig' %}
 
-{% set menus = ['store', 'plugin', 'plugin_list'] %}
+{% set menus = ['ChatworkApi', 'chatwork_api_admin_config'] %}
 
 {% block title %}Chatwork API 設定{% endblock %}
-{% block sub_title %}プラグイン一覧{% endblock %}
+{% block sub_title %}{% endblock %}
 
 {% form_theme form '@admin/Form/bootstrap_4_horizontal_layout.html.twig' %}
 
@@ -77,11 +77,6 @@
                 <div class="row justify-content-between align-items-center">
                     <div class="col-6">
                         <div class="c-conversionArea__leftBlockItem">
-                            <a class="c-baseLink"
-                               href="{{ url('admin_store_plugin') }}">
-                                <i class="fa fa-backward" aria-hidden="true"></i>
-                                <span>プラグイン一覧</span>
-                            </a>
                         </div>
                     </div>
                     <div class="col-6">
